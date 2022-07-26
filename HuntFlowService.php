@@ -61,7 +61,7 @@ class HuntFlowService
 
     public function processStructure()
     {
-        VacancyDepartment::truncate();
+      
         $itemsToInsert = [];
         foreach ($this->structure as $item) {
             $newItem = [
@@ -79,6 +79,7 @@ class HuntFlowService
             ];
             $itemsToInsert[] = $newItem;
         }
+        VacancyDepartment::truncate();
         VacancyDepartment::insert($itemsToInsert);
         VacancyDepartment::fixTree();
     }
